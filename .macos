@@ -34,12 +34,12 @@ echo "installing homebrew"
 
 # apps
 echo "installing apps from cask"
-brew install --cask alfred discord slack whatsapp brave-browser google-chrome firefox dozer itsycal spotify the-unarchiver zoom protonvpn notion wireshark
+brew install --cask alfred discord slack whatsapp brave-browser google-chrome firefox dozer itsycal spotify the-unarchiver zoom protonvpn notion wireshark google-drive iina
 
-# mas for => amphetamine magnet bear things 1password
+# mas for => amphetamine magnet bear things 1password instapaper
 echo "installing apps from App Store"
 brew install mas
-mas install 937984704 441258766 1091189122 904280696 1333542190
+mas install 937984704 441258766 1091189122 904280696 1333542190 288545208
 
 # code
 echo "installing dev tooling"
