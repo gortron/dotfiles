@@ -34,7 +34,8 @@ echo "installing homebrew"
 
 # apps
 echo "installing apps from cask"
-brew install --cask alfred discord slack whatsapp brave-browser google-chrome firefox dozer itsycal spotify the-unarchiver zoom protonvpn notion wireshark google-drive iina
+brew install --cask alfred discord slack whatsapp brave-browser google-chrome firefox dozer itsycal spotify the-unarchiver zoom protonvpn notion wireshark google-drive iina cleanshot little-snitch
+
 
 # mas for => amphetamine magnet bear things 1password instapaper
 echo "installing apps from App Store"
