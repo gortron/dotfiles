@@ -32,20 +32,26 @@ echo "installing homebrew"
 # install homebrew https://brew.sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
 
+# essential apps
+echo "installing essential apps from cask"
+brew install --cask raycast slack bitwarden brave-browser google-chrome firefox bartender itsycal spotify the-unarchiver appcleaner zoom mullvad-vpn obsidian notion cleanshot
+
 # apps
-echo "installing apps from cask"
-brew install --cask alfred discord slack whatsapp brave-browser google-chrome firefox dozer itsycal spotify the-unarchiver zoom protonvpn notion wireshark google-drive iina cleanshot little-snitch
+echo "installing essential apps from cask"
+brew install --cask whatsapp discord wireshark google-drive iina little-snitch anki balenaetcher istat-menus@6
 
+# other apps
+# steam steam-link moonlight linear instapaper reeder lm-studio nvidia-gfn orion syncthing warp zed
 
-# mas for => amphetamine magnet bear things 1password instapaper
+# mas for => amphetamine magnet things pixelmator-pro
 echo "installing apps from App Store"
 brew install mas
-mas install 937984704 441258766 1091189122 904280696 1333542190 288545208
+mas install 937984704 441258766 904280696 1289583905
 
 # code
 echo "installing dev tooling"
 brew install git gh postgresql awscli
-brew install --cask visual-studio-code iterm2 postman postico pgadmin4 docker
+brew install --cask visual-studio-code iterm2 docker postman postico pgadmin4
 
 
 # nvm, node, yarn
@@ -54,6 +60,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
+nvm install 16.8.0 # last stable for yarn 3
 
 # python
 echo "installing python"
