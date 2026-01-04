@@ -29,3 +29,24 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # From yarn setup
 # corepack enable
+
+# From swift setup
+export TOOLCHAINS=swift
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/glanza/.lmstudio/bin"
+
+# To get tkinter working for python
+export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/tcl-tk/lib/pkgconfig"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Custom aliases
+alias agt1="tmux attach -t agent1"
+alias agt2="tmux attach -t agent2"
+
+# Devcontainer shortcuts
+alias ds='devcontainer up --workspace-folder . && devcontainer exec --workspace-folder . zsh'
+alias dc='devcontainer up --workspace-folder . && devcontainer exec --workspace-folder . claude'

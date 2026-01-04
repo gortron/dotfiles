@@ -1,0 +1,5 @@
+# Re-opens windows
+window-save-state = always
+
+# Enable system notifications (OSC 9/777)
+desktop-notifications = true
