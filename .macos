@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 
-# ~/.macos — https://mths.be/macos
-# Inspiration: https://github.com/kentcdodds/dotfiles/blob/master/.macos
-# Modified by Gordy
 # Run without downloading:
 # curl https://raw.githubusercontent.com/gortron/dotfiles/master/.macos | bash
-
-# Dock: Brave Notion Things Messages Whatsapp Slack Discord Spotify VSCode iTerm ActivityMonitor SysPref
-# Menu Bar: Focus Clipy Amphetamine Alfred Magnets BT Proton WiFi Sounds Battery ItsyCal(date) Time
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -19,10 +13,6 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-###############################################################################
-# Gordy's Customizations                                                      #
-###############################################################################
-
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "mkdir -p ${HOME}/Development"
@@ -30,18 +20,11 @@ mkdir -p "${HOME}/Development"
 
 echo "installing homebrew"
 # install homebrew https://brew.sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # essential apps
 echo "installing essential apps from cask"
-brew install --cask raycast slack bitwarden brave-browser google-chrome firefox bartender itsycal spotify the-unarchiver appcleaner zoom mullvad-vpn obsidian notion cleanshot
-
-# apps
-echo "installing essential apps from cask"
-brew install --cask whatsapp discord wireshark google-drive iina little-snitch anki balenaetcher istat-menus@6
-
-# other apps
-# steam steam-link moonlight linear instapaper reeder lm-studio nvidia-gfn orion syncthing warp zed
+brew install --cask raycast bitwarden tailscale-app brave-browser google-chrome firefox bartender itsycal spotify the-unarchiver appcleaner  obsidian notion cleanshot syncthing discord element little-snitch anki balenaetcher istat-menus@6
 
 # mas for => amphetamine magnet things pixelmator-pro
 echo "installing apps from App Store"
@@ -50,47 +33,14 @@ mas install 937984704 441258766 904280696 1289583905
 
 # code
 echo "installing dev tooling"
-brew install git gh postgresql awscli
-brew install --cask visual-studio-code iterm2 docker postman postico pgadmin4
+brew install git gh ripgrep fd fzf bat eza jq yq tree delta lazygit zoxide tldr uv
+brew install --cask visual-studio-code ghostty orbstack claude-code
 
-
-# nvm, node, yarn
-echo "installing nvm, node, and yarn"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+echo "installing nvm and node latest"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm install node
-nvm install 16.8.0 # last stable for yarn 3
-
-# python
-echo "installing python"
-brew install openssl readline sqlite3 xz zlib # pre-requisites
-brew install pyenv
-echo 'eval "$(pyenv init --path)"' >> ~/.zprofile 
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-pyenv install 3.9.4
-pyenv global 3.9.4
-brew install pipenv
-
-# git - easier to do with 'gh auth login'
-# echo "Generating an RSA token for GitHub"
-# mkdir -p ~/.ssh
-# touch ~/.ssh/config
-# ssh-keygen -t rsa -b 4096 -C "gordon.lanza@gmail.com"
-# echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
-# eval "$(ssh-agent -s)"
-# echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
-
-# zsh
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# spaceship
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-#plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 
 # Disable the “Are you sure you want to open this application?” dialog
 sudo defaults write com.apple.LaunchServices LSQuarantine -bool false

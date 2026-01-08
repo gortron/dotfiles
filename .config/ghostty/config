@@ -1,5 +1,9 @@
-# Re-opens windows
+# Functionality
 window-save-state = always
-
-# Enable system notifications (OSC 9/777)
 desktop-notifications = true
+keybind = shift+enter=text:\x1b\r
+
+# Style
+theme = Catppuccin Mocha
+font-size = 16
+font-family = dank-mono
