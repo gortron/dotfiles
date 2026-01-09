@@ -171,6 +171,12 @@
       }
     ]
   },
+  "workbench.colorCustomizations": {
+    "quickInput.background": "#2b2e3c",
+    "quickInput.foreground": "#C6D0F5",
+    "quickInputTitle.background": "#2b2e3c",
+    "quickInputList.focusBackground": "#414660"
+  },
   "vscode_custom_css.imports": [
     "file://${userHome}/dotfiles/.config/vscode/custom-vscode.css",
     "file://${userHome}/dotfiles/.config/vscode/vscode-script.js"
